@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  vapoursynth-yuuno:
+    image: nalsai/vapoursynth-yuuno
+    build: ./src
+    container_name: vapoursynth-yuuno
+    restart: unless-stopped
+    volumes:
+      - ./yuuno:/yuuno
+    ports:
+      - 8888:8888
+    tty: true
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 26677
+        hard: 46677
+    #cpus: 1.8
+    cpu_shares: 256 #128 # default: 1024
+
