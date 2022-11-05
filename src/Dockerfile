@@ -22,7 +22,7 @@ RUN mkdir .gnupg && \
 
 # Install vapoursynth plugins (split for caching reasons)
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fmtconv-git vapoursynth-plugin-bm3d-git vapoursynth-plugin-mvsfunc-git
-RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git apoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
+RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git vapoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-mvtools-git vapoursynth-plugin-deblock-git vapoursynth-plugin-fluxsmooth-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-eedi2-git vapoursynth-plugin-nnedi3_weights_bin
 RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3-git vapoursynth-plugin-nnedi3-git vapoursynth-plugin-znedi3-git 
