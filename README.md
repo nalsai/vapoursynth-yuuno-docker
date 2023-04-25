@@ -27,6 +27,8 @@ services:
         hard: 46677
     #cpus: 1.8       # limit max cpu usage
     cpu_shares: 256  # lower cpu priority (default shares: 1024)
+    devices:
+      - /dev/kfd:/dev/kfd
     networks:
       - traefik
     labels:

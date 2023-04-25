@@ -3,7 +3,7 @@ FROM archlinux:base-devel
 # Update and install packages
 RUN pacman --noconfirm -Syu && \
     pacman --noconfirm --needed -S sudo git base-devel python-pip python-setuptools \
-      x264 x265 ffmpeg4.4 tesseract-data-eng meson rust \
+      rocm-opencl-runtime x264 x265 ffmpeg4.4 tesseract-data-eng meson rust \
       vapoursynth ffms2 vapoursynth-plugin-lsmashsource
 
 # Add user
