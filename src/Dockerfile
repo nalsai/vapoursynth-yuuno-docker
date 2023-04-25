@@ -25,14 +25,14 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-fmtconv-git vapoursynth-plug
 RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git vapoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-mvtools-git vapoursynth-plugin-deblock-git vapoursynth-plugin-fluxsmooth-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-eedi2-git vapoursynth-plugin-nnedi3_weights_bin
-RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3-git vapoursynth-plugin-nnedi3-git vapoursynth-plugin-znedi3-git 
+RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3-git vapoursynth-plugin-znedi3-git 
 RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3_resample-git 
 #RUN paru --noconfirm --needed -S vapoursynth-plugin-g41fun-git
+RUN paru --noconfirm --needed -S vapoursynth-plugin-havsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-vardefunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-muvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-lvsfunc-git
-RUN paru --noconfirm --needed -S vapoursynth-plugin-havsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-ccd-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-edgefixer-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-finesharp-git 
