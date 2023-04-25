@@ -33,6 +33,9 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-muvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-lvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-havsfunc-git
+RUN paru --noconfirm --needed -S vapoursynth-plugin-ccd-git
+RUN paru --noconfirm --needed -S vapoursynth-plugin-edgefixer-git
+RUN paru --noconfirm --needed -S vapoursynth-plugin-finesharp-git 
 
 # Install yuuno
 RUN pip install yuuno
