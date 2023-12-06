@@ -41,7 +41,7 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-vivtc-git vapoursynth-plugin
 RUN paru --noconfirm --needed -S vapoursynth-plugin-vsmasktools-git vapoursynth-plugin-bestsource-git
 
 # Install yuuno
-RUN pip install yuuno
+RUN pip install yuuno --break-system-packages
 
 # Configure Jupyter
 ADD jupyter_notebook_config.py /home/yuuno/.jupyter/jupyter_notebook_config.py
