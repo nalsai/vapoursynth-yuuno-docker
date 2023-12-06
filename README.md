@@ -1,10 +1,8 @@
 # Vapoursynth-Yuuno Docker
 
-A docker container for running Vapoursynth and Yuuno (JupyterLab) based on Arch Linux.
+An OCI container for running Vapoursynth with Yuuno (JupyterLab) based on Arch Linux.
 
-The default password for Jupyter is 1234. (I use traefik-forward-auth to secure it.)
-
-Example docker-compose.yml based on my personal config:
+docker-compose.yml example:
 
 ```yml
 version: "3.9"

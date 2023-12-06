@@ -10,4 +10,4 @@ if [ -f $STARTUP_SCRIPT ]; then
 fi
 
 #jupyter notebook --allow-root
-/home/yuuno/.local/bin/jupyter lab --notebook-dir=/yuuno
+/home/yuuno/.local/bin/jupyter lab --notebook-dir=/yuuno --no-browser --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''  --NotebookApp.allow_remote_access=True --NotebookApp.port=8888

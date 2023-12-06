@@ -20,7 +20,7 @@ RUN mkdir .gnupg && \
     cd paru-bin && \
     makepkg --noconfirm --syncdeps --rmdeps --install --clean
 
-# Install vapoursynth plugins (split for caching reasons)
+# Install vapoursynth plugins (split to have a cache in case of failure)
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fmtconv-git vapoursynth-plugin-bm3d-git vapoursynth-plugin-mvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git vapoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-mvtools-git vapoursynth-plugin-deblock-git vapoursynth-plugin-fluxsmooth-git
@@ -42,9 +42,6 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-vsmasktools-git vapoursynth-
 
 # Install yuuno
 RUN pip install yuuno --break-system-packages
-
-# Configure Jupyter
-ADD jupyter_notebook_config.py /home/yuuno/.jupyter/jupyter_notebook_config.py
 
 WORKDIR /yuuno
 ADD entrypoint.sh /usr/bin
