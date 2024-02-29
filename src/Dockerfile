@@ -3,7 +3,7 @@ FROM archlinux:base-devel
 # Update and install packages
 RUN pacman --noconfirm -Syu && \
     pacman --noconfirm --needed -S sudo git base-devel python-pip python-setuptools \
-      rocm-opencl-runtime x264 x265 ffmpeg4.4 tesseract-data-eng meson rust \
+      rocm-opencl-runtime x264 x265 ffmpeg tesseract-data-eng meson rust \
       vapoursynth ffms2 vapoursynth-plugin-lsmashsource
 
 # Add user
@@ -20,6 +20,8 @@ RUN mkdir .gnupg && \
     cd paru-bin && \
     makepkg --noconfirm --syncdeps --rmdeps --install --clean
 
+#RUN paru --noconfirm --needed -S libplacebo-git ffmpeg-full
+
 # Install vapoursynth plugins (split to have a cache in case of failure)
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fmtconv-git vapoursynth-plugin-bm3d-git vapoursynth-plugin-mvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git vapoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
@@ -29,7 +31,7 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3-git vapoursynth-plugi
 RUN paru --noconfirm --needed -S vapoursynth-plugin-nnedi3_resample-git 
 #RUN paru --noconfirm --needed -S vapoursynth-plugin-g41fun-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-havsfunc-git
-RUN paru --noconfirm --needed -S vapoursynth-plugin-vardefunc-git
+#RUN paru --noconfirm --needed -S vapoursynth-plugin-vardefunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-muvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-lvsfunc-git
@@ -40,12 +42,21 @@ RUN paru --noconfirm --needed -S vapoursynth-plugin-vsdehalo-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-vivtc-git vapoursynth-plugin-remapframes-git vapoursynth-plugin-eedi3m-git vapoursynth-plugin-awsmfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-vsmasktools-git vapoursynth-plugin-bestsource-git
 
+RUN paru --noconfirm --needed -S vapoursynth-plugin-dctfilter-git 
+RUN paru --noconfirm --needed -S vapoursynth-plugin-fixtelecinedfades-git
+
+RUN paru --noconfirm --needed -S vapoursynth-plugin-vsakarin-git
+
+RUN sudo pip install git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-deinterlace.git --break-system-packages
+RUN sudo pip install git+https://github.com/Ichunjo/vardefunc.git --break-system-packages
+
+
 # Install yuuno
-RUN pip install yuuno --break-system-packages
+RUN sudo pip install yuuno --break-system-packages
 
 WORKDIR /yuuno
 ADD entrypoint.sh /usr/bin
-RUN sudo chmod 755 /usr/bin/entrypoint.sh && sudo chown yuuno:yuuno -R /home/yuuno
+RUN sudo chmod 755 /usr/bin/entrypoint.sh && sudo chown yuuno:yuuno -R /yuuno
 ENV STARTUP_SCRIPT /yuuno/startup.sh
 EXPOSE 8888
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]

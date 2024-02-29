@@ -9,5 +9,5 @@ if [ -f $STARTUP_SCRIPT ]; then
     sh $STARTUP_SCRIPT;
 fi
 
-#jupyter notebook --allow-root
-/home/yuuno/.local/bin/jupyter lab --notebook-dir=/yuuno --no-browser --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''  --NotebookApp.allow_remote_access=True --NotebookApp.port=8888
+sudo jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
+sudo jupyter lab --notebook-dir=/home/yuuno/jupyter --no-browser --ip=0.0.0.0 --ServerApp.token='' --ServerApp.password=''  --ServerApp.allow_remote_access=True --ServerApp.port=8888 --allow-root
