@@ -4,11 +4,10 @@ FROM archlinux:base-devel
 RUN pacman --noconfirm -Syu && \
     pacman --noconfirm --needed -S sudo git base-devel python-pip python-setuptools \
       rocm-opencl-runtime x264 x265 ffmpeg tesseract-data-eng meson rust \
-      vapoursynth ffms2 vapoursynth-plugin-lsmashsource
+      vapoursynth ffms2
 
 # Add user
-RUN useradd -m yuuno && \
-    echo "yuuno ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/build
+RUN useradd -m yuuno && echo "yuuno ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/build
 USER yuuno
 WORKDIR /home/yuuno
 
@@ -23,6 +22,7 @@ RUN mkdir .gnupg && \
 #RUN paru --noconfirm --needed -S libplacebo-git ffmpeg-full
 
 # Install vapoursynth plugins (split to have a cache in case of failure)
+RUN paru --noconfirm --needed -S vapoursynth-plugin-lsmashsource
 RUN paru --noconfirm --needed -S vapoursynth-plugin-fmtconv-git vapoursynth-plugin-bm3d-git vapoursynth-plugin-mvsfunc-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-descale-git vapoursynth-plugin-mvtools-git vapoursynth-plugin-cas-git
 RUN paru --noconfirm --needed -S vapoursynth-plugin-mvtools-git vapoursynth-plugin-deblock-git vapoursynth-plugin-fluxsmooth-git
