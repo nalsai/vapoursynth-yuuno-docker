@@ -10,4 +10,4 @@ if [ -f $STARTUP_SCRIPT ]; then
 fi
 
 sudo jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
-sudo jupyter lab --notebook-dir=/home/yuuno/jupyter --no-browser --ip=0.0.0.0 --ServerApp.token='' --ServerApp.password=''  --ServerApp.allow_remote_access=True --ServerApp.port=8888 --allow-root
+sudo jupyter lab --notebook-dir=/yuuno --no-browser --ip=0.0.0.0 --ServerApp.token='' --ServerApp.password=''  --ServerApp.allow_remote_access=True --ServerApp.port=8888 --allow-root
