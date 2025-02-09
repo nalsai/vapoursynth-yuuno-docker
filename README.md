@@ -10,12 +10,6 @@ Alternatively, you can also use it to filter videos directly with VapourSynth fr
 
 You can set the environment variable `$STARTUP_SCRIPT` to the path of a script, then it will get executed on startup. This can be used to install additional packages (you can install from the AUR with paru) or setup your environment. By default it is set to `/yuuno/startup.sh`.
 
-## Included VapourSynth plugins
-
-- vapoursynth
-- 
-
-
 ## Usage of Yuuno
 
 docker-compose.yml:
